@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+          xmlns:oak="http://jackrabbit.apache.org/oak/ns/1.0"
+          xmlns:dam="http://www.day.com/dam/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:rep="internal"
+          jcr:mixinTypes="[mix:lockable,rep:AccessControllable]"
+          jcr:primaryType="sling:OrderedFolder">
+    <rep:policy/>
+    <__contentFolderName__/>
+    <oak:index jcr:mixinTypes="[rep:AccessControllable]" jcr:primaryType="nt:unstructured">
+        <simpleCFPropertyIndex jcr:primaryType="oak:QueryIndexDefinition"
+                               async="async"
+                               compatVersion="{Long}2"
+                               evaluatePathRestrictions="{Boolean}true"
+                               reindex="{Boolean}true"
+                               type="lucene">
+            <indexRules jcr:primaryType="nt:unstructured">
+                <dam:AssetContent jcr:primaryType="nt:unstructured">
+                    <properties jcr:primaryType="nt:unstructured">
+                        <contentFragment jcr:primaryType="nt:unstructured" name="contentFragment" propertyIndex="{Boolean}true"/>
+                    </properties>
+                </dam:AssetContent>
+            </indexRules>
+        </simpleCFPropertyIndex>
+    </oak:index>
+</jcr:root>
